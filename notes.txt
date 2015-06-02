@@ -1,0 +1,1 @@
+SLAP = Sounds Like a Plan

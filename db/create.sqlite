@@ -1,0 +1,6 @@
+CREATE TABLE Tasks( id INTEGER PRIMARY KEY, summary TEXT NOT NULL, status INTEGER NOT NULL );
+CREATE TABLE SubTasks( parentId INTEGER, childId INTEGER, FOREIGN KEY( parentId ) REFERENCES Tasks(id), FOREIGN KEY( childId ) REFERENCES Tasks(id) );
+CREATE TABLE Dependencies( firstId INTEGER, secondId INTEGER, FOREIGN KEY( firstId ) REFERENCES Tasks(id), FOREIGN KEY( secondId ) REFERENCES Tasks(id) );
+CREATE TABLE TagValues( id INTEGER PRIMARY KEY, value TEXT NOT NULL );
+CREATE TABLE TagUsages( taskId INTEGER, tagId INTEGER, FOREIGN KEY( taskId ) REFERENCES Tasks(id), FOREIGN KEY( tagId ) REFERENCES TagValues(id) );
+
